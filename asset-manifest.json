@@ -1,16 +1,21 @@
 {
   "files": {
-    "main.css": "/ice-bar/static/css/main.f855e6bc.css",
-    "main.js": "/ice-bar/static/js/main.0cd84873.js",
+    "main.css": "/ice-bar/static/css/main.fddd7212.css",
+    "main.js": "/ice-bar/static/js/main.871930e6.js",
     "static/js/453.07e7180c.chunk.js": "/ice-bar/static/js/453.07e7180c.chunk.js",
-    "static/media/logo.svg": "/ice-bar/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "static/media/Current_2026_2.jpg": "/ice-bar/static/media/Current_2026_2.f479928e6dafeed51553.jpg",
+    "static/media/Current_2026_1.jpg": "/ice-bar/static/media/Current_2026_1.f864e74ce9c1dcb58fcb.jpg",
+    "static/media/Previous_2025.JPG": "/ice-bar/static/media/Previous_2025.28dff7a42653fc993e97.JPG",
+    "static/media/previous_2025_1.JPG": "/ice-bar/static/media/previous_2025_1.b383642bb63b1b143379.JPG",
+    "static/media/previous_2025_2.JPG": "/ice-bar/static/media/previous_2025_2.e5f0f0d574c62eec6d78.JPG",
+    "static/media/Previous_2025.MOV": "/ice-bar/static/media/Previous_2025.2a131a97b3e0311e966e.MOV",
     "index.html": "/ice-bar/index.html",
-    "main.f855e6bc.css.map": "/ice-bar/static/css/main.f855e6bc.css.map",
-    "main.0cd84873.js.map": "/ice-bar/static/js/main.0cd84873.js.map",
+    "main.fddd7212.css.map": "/ice-bar/static/css/main.fddd7212.css.map",
+    "main.871930e6.js.map": "/ice-bar/static/js/main.871930e6.js.map",
     "453.07e7180c.chunk.js.map": "/ice-bar/static/js/453.07e7180c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f855e6bc.css",
-    "static/js/main.0cd84873.js"
+    "static/css/main.fddd7212.css",
+    "static/js/main.871930e6.js"
   ]
 }
