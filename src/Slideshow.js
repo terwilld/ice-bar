@@ -6,6 +6,7 @@ import secondVideo from './assets/images/second.mov';
 import thirdVideo from './assets/images/third.MOV';
 import fourthVideo from './assets/images/fourth.MOV';
 import fifthVideo from './assets/images/five.mov';
+import backgroundImage from './assets/images/background_image.avif';
 
 const slides = [
   { type: 'video', src: firstVideo, caption: 'Holiday Party 2025' },
@@ -93,6 +94,13 @@ function Slideshow() {
               <img src={currentSlide.src} alt={currentSlide.caption} />
             ) : (
               <>
+                {showPlayButton && (
+                  <img
+                    src={backgroundImage}
+                    alt="Ice Bar Background"
+                    className="mobile-placeholder"
+                  />
+                )}
                 <video src={currentSlide.src} muted={isMuted} />
                 {showPlayButton && (
                   <div className="play-overlay" onClick={handlePlayClick}>
