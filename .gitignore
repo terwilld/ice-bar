@@ -18,6 +18,9 @@
 .env.test.local
 .env.production.local
 
+# original video files
+/src/assets/original
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
