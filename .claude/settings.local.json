@@ -3,7 +3,9 @@
     "allow": [
       "Bash(mkdir:*)",
       "Bash(sips:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd five-video slideshow sequence\n\n- Added First.MOV, second.mov, third.MOV, fourth.MOV, and five.mov\n- Updated Slideshow component to support sequential video playback\n- Play button controls both playback and sound\n- Videos auto-advance after each completes\n- Play button reappears after final video\n- Removed old image files\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude Sonnet 4.5 <noreply@anthropic.com>\nEOF\n)\")"
     ]
   }
 }

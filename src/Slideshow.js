@@ -1,25 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import './Slideshow.css';
 
-import previous1 from './assets/images/Previous_2025.JPG';
-import previous2 from './assets/images/previous_2025_1.JPG';
-import previous3 from './assets/images/previous_2025_2.JPG';
-import previousVideo from './assets/images/Previous_2025.MOV';
-import current1 from './assets/images/Current_2026_1.jpg';
-import current2 from './assets/images/Current_2026_2.jpg';
+import firstVideo from './assets/images/First.MOV';
+import secondVideo from './assets/images/second.mov';
+import thirdVideo from './assets/images/third.MOV';
+import fourthVideo from './assets/images/fourth.MOV';
+import fifthVideo from './assets/images/five.mov';
 
 const slides = [
-  { type: 'image', src: previous1, caption: "Where we're going" },
-  { type: 'image', src: previous2, caption: "Where we're going - Last year's celebration" },
-  { type: 'image', src: previous3, caption: "Where we're going - Memories from 2024" },
-  { type: 'video', src: previousVideo, caption: "Where we're going - A preview of the festivities" },
-  { type: 'image', src: current1, caption: 'Current state December 11 2025' },
-  { type: 'image', src: current2, caption: 'Current state December 11 2025' },
+  { type: 'video', src: firstVideo, caption: 'Holiday Party 2025' },
+  { type: 'video', src: secondVideo, caption: 'Holiday Party 2025' },
+  { type: 'video', src: thirdVideo, caption: 'Holiday Party 2025' },
+  { type: 'video', src: fourthVideo, caption: 'Holiday Party 2025' },
+  { type: 'video', src: fifthVideo, caption: 'Holiday Party 2025' },
 ];
 
 function Slideshow() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fadeClass, setFadeClass] = useState('fade-in');
+  const [isMuted, setIsMuted] = useState(true);
+  const [showPlayButton, setShowPlayButton] = useState(true);
 
   useEffect(() => {
     const slide = slides[currentIndex];
@@ -27,10 +27,20 @@ function Slideshow() {
     if (slide.type === 'video') {
       const video = document.querySelector('video');
       if (video) {
-        video.play().catch(err => console.log('Video play error:', err));
+        // Set up ended event listener
         video.onended = () => {
+          // Check if this is the last video
+          const isLastVideo = currentIndex === slides.length - 1;
+          if (isLastVideo) {
+            setShowPlayButton(true);
+          }
           goToNextSlide();
         };
+
+        // Auto-play if not the first video (play button already clicked)
+        if (!showPlayButton && !isMuted) {
+          video.play().catch(err => console.log('Video play error:', err));
+        }
       }
     } else {
       const timer = setTimeout(() => {
@@ -39,7 +49,7 @@ function Slideshow() {
 
       return () => clearTimeout(timer);
     }
-  }, [currentIndex]);
+  }, [currentIndex, showPlayButton, isMuted]);
 
   const goToNextSlide = () => {
     setFadeClass('fade-out');
@@ -50,6 +60,16 @@ function Slideshow() {
   };
 
   const currentSlide = slides[currentIndex];
+
+  const handlePlayClick = () => {
+    setShowPlayButton(false);
+    setIsMuted(false);
+    const video = document.querySelector('video');
+    if (video) {
+      video.muted = false;
+      video.play().catch(err => console.log('Video play error:', err));
+    }
+  };
 
   return (
     <div className="slideshow-container">
@@ -64,13 +84,30 @@ function Slideshow() {
         <div className="snowflake">❆</div>
       </div>
 
-      <div className={`slide ${fadeClass}`}>
-        {currentSlide.type === 'image' ? (
-          <img src={currentSlide.src} alt={currentSlide.caption} />
-        ) : (
-          <video src={currentSlide.src} muted />
-        )}
+      <div className="content-wrapper">
         <div className="caption">{currentSlide.caption}</div>
+
+        <div className={`slide ${fadeClass}`}>
+          <div className="video-wrapper">
+            {currentSlide.type === 'image' ? (
+              <img src={currentSlide.src} alt={currentSlide.caption} />
+            ) : (
+              <>
+                <video src={currentSlide.src} muted={isMuted} />
+                {showPlayButton && (
+                  <div className="play-overlay" onClick={handlePlayClick}>
+                    <div className="play-icon">▶</div>
+                  </div>
+                )}
+              </>
+            )}
+          </div>
+        </div>
+
+        <div className="text-block">
+          <p>Ever wondered how we build our hand-made ICE BAR? 🧊✨</p>
+          <p>With the cold finally setting in, our two-week build has officially begun! We're giving you a behind-the-scenes look this year so you can see the craft and sweat that goes into every block.</p>
+        </div>
       </div>
     </div>
   );
