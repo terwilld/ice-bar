@@ -6,14 +6,22 @@ import secondVideo from './assets/images/second.mov';
 import thirdVideo from './assets/images/third.MOV';
 import fourthVideo from './assets/images/fourth.MOV';
 import fifthVideo from './assets/images/five.mov';
+import sixthVideo from './assets/images/Sixth.mov';
+import seventhVideo from './assets/images/Seventh.mov';
+import eighthVideo from './assets/images/8th_cakepop.mov';
+import ninthVideo from './assets/images/9th_cakepop.MOV';
 import backgroundImage from './assets/images/background_image.avif';
 
 const slides = [
-  { type: 'video', src: firstVideo, caption: 'Holiday Party 2025' },
-  { type: 'video', src: secondVideo, caption: 'Holiday Party 2025' },
-  { type: 'video', src: thirdVideo, caption: 'Holiday Party 2025' },
-  { type: 'video', src: fourthVideo, caption: 'Holiday Party 2025' },
-  { type: 'video', src: fifthVideo, caption: 'Holiday Party 2025' },
+  { type: 'video', src: firstVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: secondVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: thirdVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: fourthVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: fifthVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: sixthVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: seventhVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: eighthVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: ninthVideo, caption: 'Holiday Party 2026' },
 ];
 
 function Slideshow() {
@@ -21,6 +29,20 @@ function Slideshow() {
   const [fadeClass, setFadeClass] = useState('fade-in');
   const [isMuted, setIsMuted] = useState(true);
   const [showPlayButton, setShowPlayButton] = useState(true);
+
+  // Preload current and next video
+  useEffect(() => {
+    const nextIndex = (currentIndex + 1) % slides.length;
+    [currentIndex, nextIndex].forEach((idx) => {
+      const slide = slides[idx];
+      if (slide.type === 'video') {
+        const video = document.createElement('video');
+        video.src = slide.src;
+        video.preload = 'auto';
+        video.load();
+      }
+    });
+  }, [currentIndex]);
 
   useEffect(() => {
     const slide = slides[currentIndex];
@@ -101,7 +123,7 @@ function Slideshow() {
                     className="mobile-placeholder"
                   />
                 )}
-                <video src={currentSlide.src} muted={isMuted} />
+                <video src={currentSlide.src} muted={isMuted} preload="auto" />
                 {showPlayButton && (
                   <div className="play-overlay" onClick={handlePlayClick}>
                     <div className="play-icon">▶</div>
