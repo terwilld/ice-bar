@@ -8,6 +8,9 @@ import fourthVideo from './assets/images/fourth.MOV';
 import fifthVideo from './assets/images/five.mov';
 import sixthVideo from './assets/images/Sixth.mov';
 import seventhVideo from './assets/images/Seventh.mov';
+import firstBaseBuilding from './assets/images/first_base_building.mov';
+import secondBaseBuilding from './assets/images/second_base_building.mov';
+import thirdBaseBuilding from './assets/images/third_base_building.mov';
 import eighthVideo from './assets/images/8th_cakepop.mov';
 import ninthVideo from './assets/images/9th_cakepop.MOV';
 import backgroundImage from './assets/images/background_image.avif';
@@ -20,6 +23,9 @@ const slides = [
   { type: 'video', src: fifthVideo, caption: 'Holiday Party 2026' },
   { type: 'video', src: sixthVideo, caption: 'Holiday Party 2026' },
   { type: 'video', src: seventhVideo, caption: 'Holiday Party 2026' },
+  { type: 'video', src: firstBaseBuilding, caption: 'Holiday Party 2026' },
+  { type: 'video', src: secondBaseBuilding, caption: 'Holiday Party 2026' },
+  { type: 'video', src: thirdBaseBuilding, caption: 'Holiday Party 2026' },
   { type: 'video', src: eighthVideo, caption: 'Holiday Party 2026' },
   { type: 'video', src: ninthVideo, caption: 'Holiday Party 2026' },
 ];
